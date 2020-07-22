@@ -1,14 +1,12 @@
 {
-  "database":
-
-  [
+  "database":[
   {
     "Horodateur": "22/07/2020 08:58:44",
     "Pseudo": "AntoineCZ",
     "Promo": 2022,
     "Team": "Bleu",
     "LVL": 40,
-    "Code amis": 754872722290
+    "Code_amis": 754872722290
   },
   {
     "Horodateur": "22/07/2020 09:33:44",
@@ -16,7 +14,7 @@
     "Promo": 2022,
     "Team": "Bleu",
     "LVL": 40,
-    "Code amis": 828281296403
+    "Code_amis": 828281296403
   }
 ]
 
