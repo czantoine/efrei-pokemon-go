@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<head>
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" type="img/png" href="img/icon.png"/>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<meta name="author" content="czantoine">
+
+	<title>Efrei Pokemon GO</title>
+</head>
+
+
+<body>
+
+
+	<h1>Efrei Pokemon Go - Code ami </h1>
+
+	</br>
+
+	<center>
+		<button>
+			<a href="ajouter.html">
+				Ajouter mon code ami
+			</a>
+		</button>
+	</center>
+	
+
+	</br></br></br>
+
+	<div id="overflowtab">
+			<div id="tasktab">
+				<table>
+					<tbody id="tbody">
+						<tr>
+							<th>Enregistrement</th>
+							<th>Pseudo</th>
+							<th>Promo</th>
+							<th>Team</th>
+							<th>Niveau</th>
+							<th>Code ami</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+
+<script type="text/javascript">
+
+	let timetotal = 10;
+			let decompte = 0;
+			let datatab = 0;
+			let first = 0 ;
+			let last = 10;
+
+	function getTasks(){
+				fetch('https://my-json-server.typicode.com/czantoine/efrei-pokemon-go/database')
+				.then(response => response.json())                                    	 
+				.then(function (data) {
+					console.log('data', data)
+					fetchtotab(data);
+				})
+			}	
+
+	function createTask(Horodateur,Pseudo,Promo,Team,LVL,Code_ami){
+				let tasktableau = document.getElementById("tbody");
+
+				let rang = document.createElement("tr");
+
+				let tabl1 = document.createElement("td");
+				tabl1. textContent = Horodateur;
+				rang.appendChild(tabl1);
+
+				let tabl2 = document.createElement("td");
+				tabl2.textContent = Pseudo;
+				rang.appendChild(tabl2);
+
+				let tabl3 = document.createElement("td");
+				tabl3.textContent = Promo;
+				rang.appendChild(tabl3);
+
+				let tabl4 = document.createElement("td");
+				tabl4.textContent = Team;
+				rang.appendChild(tabl4);
+				tasktableau.appendChild(rang);
+
+				let tabl5 = document.createElement("td");
+				tabl5.textContent = LVL;
+				rang.appendChild(tabl5);
+				tasktableau.appendChild(rang);
+
+				let tabl6 = document.createElement("td");
+				tabl6.textContent = Code_ami;
+				rang.appendChild(tabl6);
+				tasktableau.appendChild(rang);
+			}
+
+			function fetchtotab(data){
+				data.slice(first,last).forEach(function(item){
+					createTask(item.Horodateur,item.Pseudo,item.Promo,item.Team,item.LVL,item.Code_ami);
+				});
+			}
+		getTasks();		
+	
+
+
+</script>	
+
+</body>
+
+</html>
