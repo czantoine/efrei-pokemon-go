@@ -7,22 +7,14 @@ var jsonSource = "https://spreadsheets.google.com/feeds/list/1zGubEAD3E0o-OEc1T0
   .done(function(data) { 
     if (data.feed.entry.length > 0) {
       $.each( data.feed.entry, function( i, item ) {
-        var $horodateur = item.gsx$horodateur.$t;
-        var $pseudo = item.gsx$pseudo.$t;
-        var $promo = item.gsx$promo.$t;
-        var $team = item.gsx$team.$t;
-        var $lvl = item.gsx$lvl.$t;
-        var $codeami = item.gsx$codeami.$t;
-        var $docLink;
+        var $joueurs = item.gsx$joueurs.$t;
+        var $pourcentage = item.gsx$pourcentage.$t;
         
+    
         
-        $("<tr><td>" + $horodateur + 
-            "</td><td>" + $pseudo+ 
-            "</td><td>" + $promo + 
-            "</td><td>" + $team + 
-            "</td><td>" + $lvl + 
-            "</td><td>" + $codeami + 
-            "</td></tr>").appendTo("#loans");
+        $("<p>" + $joueurs+ 
+          "</p><p>" + $pourcentage+ 
+            "</p>").appendTo("#stats");
       });
     } else {
       $("<p>JSON request succeeded but no data returned.</p>").prependTo("#container");
